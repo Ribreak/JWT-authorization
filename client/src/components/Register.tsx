@@ -29,13 +29,6 @@ const Register = (props: RegisterProps) => {
         };
     }
 
-    function register () {
-        if (password === checkPassword) {
-            store.registration(email, password);
-        }
-        else setValidPassword(false);
-    }
-
     async function handleRegister () {
         if (password === checkPassword) {
             const response = await store.registration(email, password);

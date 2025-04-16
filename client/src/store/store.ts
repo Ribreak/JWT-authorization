@@ -35,7 +35,9 @@ export default class Store {
             this.setUser(response.data.user);
             return '';
         } catch (e) {
-            return e.response.data.message;
+            if (axios.isAxiosError(e)) {
+                return e.response?.data.message || 'Unknown error';
+            }
         }
 
     }
@@ -49,7 +51,9 @@ export default class Store {
             this.setUser(response.data.user);
             return '';
         } catch (e) {
-            return e.response.data.message;
+            if (axios.isAxiosError(e)) {
+                return e.response?.data.message || 'Unknown error';
+            }
         }
     }
 
